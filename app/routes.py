@@ -1,11 +1,17 @@
 from app import app
 from flask import render_template
+import random
 
 
 @app.route('/')
 def home():
+    player_move=input('Would you like to play Rock,Paper, or Scissors?').title()
+    computer_move = random.choice(['Rock','Paper','Scissors'])
+    comp_move = 'Rock'
+    player_wins=0
+    computer_wins=0
     print('og route if this works')
-    return render_template('index.html') 
+    return render_template('index.html', player_wins=player_wins, computer_wins=computer_wins, player_move = player_move, computer_move=computer_move) 
 
 
 @app.route('/carinventory')
@@ -21,6 +27,6 @@ def car_inventory():
 def travel():
     a = "Welcome to Flightfinder. Where are you looking to fly today?"
     b = 'Here are the current trending travel locations'
-    top_destinations = ['Galapagos Islands, Ecuador', 'The Maldives', 'Fiji', 'Tahiti', 'The Bahamas', 'Toronto, Canada', 'Chicago, USA', 'Nice, France', 'Seville, Spain', 'New York City, USA', 'Nambia', 'Napa Valley, USA', 'Colchagua Valley, Chile']
-    tropicals = ['Galapagos Islands, Ecuador', 'The Maldives', 'Fiji', 'Tahiti', 'The Bahamas']
+    top_destinations = ['The Maldives', 'Fiji', 'Tahiti', 'The Bahamas', 'Toronto', 'Chicago', 'London', 'Paris', 'Tokyo', 'Nice, France', 'Seville, Spain', 'New York City', 'Cape Town, South Africa', 'Cairo, Egypt', 'Napa Valley, USA', 'Colchagua Valley, Chile']
+    tropicals = ['The Maldives', 'Fiji', 'Tahiti', 'The Bahamas']
     return render_template('traveldestinations.html', text_a=a, text_b=b, top_dests=top_destinations, tropicals=tropicals)

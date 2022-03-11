@@ -6,7 +6,7 @@
     <div class="card-body">
         <ul class = "list-group list-group-flask">
           {% for car_name in car_inventory %} 
-            <li class = 'list-group-item'>{{ car_name }}<span class = 'mr-auto'></span></li>
+            <li class = 'list-group-item text-center'>{{ car_name }}<span class = 'mr-auto'></span></li>
           {% endfor %}
         </ul>        
         <br>
@@ -20,7 +20,7 @@
     <div class="card-body">
         <ul class = "list-group list-group-flask">
           {% for car_name in big_cars %} 
-            <li class = 'list-group-item'>{{ car_name }}<span class = 'mr-auto'></span></li>
+            <li class = 'list-group-item text-center'>{{ car_name }}<span class = 'mr-auto'></span></li>
           {% endfor %}
         </ul>        
         <br>
@@ -28,16 +28,3 @@
     </div>
   </div>
 {% endblock leftcol %}
-
-
-{% block rightcol %} 
-<div class="card">
-    <h5 class="card-header">Current Lot Inventory</h5>
-    <ul class = "list-group list-group-flask">
-      {# insert list here via % % link to routes page#}
-    </ul>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-{% endblock rightcol %}

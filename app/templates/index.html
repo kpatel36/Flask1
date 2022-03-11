@@ -1,12 +1,37 @@
-{# pulling bootstrap layout from layouts.html to format this page #}
-{# do this using an 'extends' call #}
-
-{% extends 'components/layout.html' %} 
-
-{% block leftcol %}
-<p>what up</p>
-{% endblock leftcol %}
-
-{% block rightcol %} 
-<p>not much, how about you</p>
-{% endblock rightcol %}
+{% if player_move  == 'Rock' %}
+    {% if computer_move == 'Rock'  %}
+        <p>Tie Game</p>
+    {% elif computer_move == 'Paper' %} 
+        <p>'Paper covers rock - You Lose'</p>
+        computer_wins += 1  
+    {% elif computer_move  == 'Scissors' %} 
+        <p>Rock crushes Scissors - You Win</p>
+        player_wins += 1
+    {% endif %}
+<p>Player Wins: {{ player_wins }}, Computer Wins: {{ computer_wins }}</p>
+{% elif player_move == 'Paper' %}
+    {% if computer_move == 'Paper' %}
+        <p>'Tie game'</p>
+    {% elif computer_move == 'Rock' %}
+        <p>Paper covers rock - You Win'</p>
+        <p>Player Wins: {{ player_wins }}, Computer Wins: {{ computer_wins }}'</p>
+    {% elif computer_move == 'Scissors' %}
+        <p>Scissors cuts Paper - You Lose</p>
+        computer_wins += 1
+    <p>Player Wins: {{ player_wins }}, Computer Wins: {{ computer_wins }}</p>
+    {% endif %}
+{% elif player_move == 'Scissors': %}
+    {% if computer_move == 'Scissors' %}
+        <p>'Tie game'</p>
+    {% elif computer_move == 'Paper' %}
+        <p>'Scissors cut Paper - You Win'
+        player_wins += 1
+        <p>Player Wins: {{ player_wins }}, Computer Wins: {{ computer_wins }}</p>
+    {% elif computer_move == 'Rock':%} 
+        <p>'Rock crushes Scissors - You Lose'</p>
+        computer_wins += 1
+        <p>Player Wins: {{ player_wins }}, Computer Wins: {{ computer_wins }}'</p>
+    {% endif %}
+{% else: %}
+    <p>'Please choose a valid option'</p>
+{% endif %}

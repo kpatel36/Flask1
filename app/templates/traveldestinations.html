@@ -1,29 +1,37 @@
 {% extends 'components/layout.html' %} 
-
+{{ text_a }}
+{{ text_b }}
 {% block leftcol %} 
-    {{ text_a }}
-    {{ text_b }}
-<div class = 'card'>
-    <ul>
-        {% for x in top_dests %}
-            {% if x not in tropicals %}
-                <li class = 'list-group-item'>{{ x }}</li>
-            {% endif %}
+<div class ='col d-flex justify-content-center'>
+    <div class = 'card' style="width:35rem;">
+        <img class="card-img-top" src='https://online.seterra.com/images/quiz/skyline_1.jpg'>
+        <div class="card-body">
+            <ul>
+                {% for x in top_dests %}
+                    {% if x not in tropicals %}
+                        <li class = 'list-group-item text-center'>{{ x }}</li>
+                    {% endif %}
                 {% endfor %}
-
-    </ul>
+            </ul>
+        </div>
+    </div>
 </div>
 {% endblock leftcol %}  
 
 {% block rightcol %}
-<div class = 'card'>
-    <ul>
-        {% for x in top_dests %}
-            {% if x in tropicals %}
-                <li class = 'list-group-item'>{{ x }}</li>
-            {% endif %}
-    {% endfor %}
-
-    </ul>
-</div> 
+<div class="col d-flex justify-content-center">
+    <div class = 'card' style="width:35rem;">
+        <img class="card-img-top" src="https://www.planetware.com/photos-large/SEY/best-tropical-vacations-aitutaki.jpg">
+        <h3 class = 'text-lg-center font-weight-bolder'>If you're looking a nice warm beach to sip pina coladas on.....</h3>
+        <div class ="card-body">
+            <ul>
+                {% for x in top_dests %}
+                    {% if x in tropicals %}
+                        <li class = 'list-group-item text-xl-center'>{{ x }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div> 
+</div>
 {% endblock rightcol %}
