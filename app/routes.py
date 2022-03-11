@@ -7,10 +7,8 @@ import random
 def home():
     player_move=input('Would you like to play Rock,Paper, or Scissors?').title()
     computer_move = random.choice(['Rock','Paper','Scissors'])
-    comp_move = 'Rock'
     player_wins=0
     computer_wins=0
-    print('og route if this works')
     return render_template('index.html', player_wins=player_wins, computer_wins=computer_wins, player_move = player_move, computer_move=computer_move) 
 
 
